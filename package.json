@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "description": "Node server for the Actifai Engineering takehome test.",
   "author": "Actifai Engineering",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js",
+    "dev": "ts-node server.ts"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.7",
     "express": "4.16.1",
-    "pg": "8.7.1"
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "@types/pg": "^8.15.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

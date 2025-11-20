@@ -1,15 +1,14 @@
-'use strict';
+import { Client } from 'pg';
+import * as fs from 'fs';
 
-const { Client } = require('pg');
-const fs = require("fs");
-const groupsSqlInsert = fs.readFileSync("seedGroups.sql").toString();
-const userGroupsSqlInsert = fs.readFileSync("seedUserGroups.sql").toString();
-const usersSqlInsert = fs.readFileSync("seedUsers.sql").toString();
-const salesSqlInsert = fs.readFileSync("seedSales.sql").toString();
+const groupsSqlInsert = fs.readFileSync('seedGroups.sql').toString();
+const userGroupsSqlInsert = fs.readFileSync('seedUserGroups.sql').toString();
+const usersSqlInsert = fs.readFileSync('seedUsers.sql').toString();
+const salesSqlInsert = fs.readFileSync('seedSales.sql').toString();
 
 const pgclient = new Client({
   host: 'db',
-  port: '5432',
+  port: 5432,
   user: 'user',
   password: 'pass',
   database: 'actifai'
@@ -51,7 +50,7 @@ const createSalesTableQuery = `
 	    PRIMARY KEY ("id")
     );`;
 
-const seedDatabase = async function() {
+export const seedDatabase = async function(): Promise<void> {
 
   const usersTableExistsResult = await pgclient.query("SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename = 'users');");
   const usersTableExists = usersTableExistsResult.rows[0].exists;
@@ -91,8 +90,4 @@ const seedDatabase = async function() {
 
   pgclient.end();
 
-}
-
-module.exports = {
-  seedDatabase
 }

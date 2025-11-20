@@ -1,13 +1,11 @@
-'use strict';
-
-const express = require('express');
-const seeder = require('./seed');
+import express, { Request, Response } from 'express';
+import * as seeder from './seed';
 
 // Constants
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-async function start() {
+async function start(): Promise<void> {
   // Seed the database
   await seeder.seedDatabase();
 
@@ -15,7 +13,7 @@ async function start() {
   const app = express();
 
   // Health check
-  app.get('/health', (req, res) => {
+  app.get('/health', (req: Request, res: Response) => {
     res.send('Hello World');
   });
 
