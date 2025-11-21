@@ -7,11 +7,11 @@ const usersSqlInsert = fs.readFileSync('seedUsers.sql').toString();
 const salesSqlInsert = fs.readFileSync('seedSales.sql').toString();
 
 const pgclient = new Client({
-  host: 'db',
-  port: 5432,
-  user: 'user',
-  password: 'pass',
-  database: 'actifai'
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432'),
+  user: process.env.DB_USER || 'user',
+  password: process.env.DB_PASSWORD || 'pass',
+  database: process.env.DB_NAME || 'actifai'
 });
 
 pgclient.connect();
