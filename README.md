@@ -50,9 +50,9 @@ process smoother. The API contains 6 routes:
 - `\users\revenue` - Gets the total and average revenue by user
 - `\users\revenue\{id}` - Gets the total and average revenue for a specific user - can also get revenue for a specific month
 - `\users\revenue\month` - Gets the total and average revenue by user and month
-- `\group\revenue` - Gets the total and average revenue by group
-- `\group\revenue\{id}` - Gets the total and average revenue for a specific group - can also get revenue for a specific month
-- `\group\revenue\month` - Gets the total and average revenue by group and month
+- `\groups\revenue` - Gets the total and average revenue by group
+- `\groups\revenue\{id}` - Gets the total and average revenue for a specific group - can also get revenue for a specific month
+- `\groups\revenue\month` - Gets the total and average revenue by group and month
 
 ### Future steps
 
