@@ -41,3 +41,23 @@ your browser. You should see a "Hello World" message.
 ## Help
 
 If you have any questions, feel free to reach out to your interview scheduler for clarification!
+
+## TJ's Notes
+
+For this assingment, I updated the repo to use Typescript and implemented an ORM (Drizzle) in order to make the development
+process smoother. The API contains 6 routes:
+
+- `\users\revenue` - Gets the total and average revenue by user
+- `\users\revenue\{id}` - Gets the total and average revenue for a specific user - can also get revenue for a specific month
+- `\users\revenue\month` - Gets the total and average revenue by user and month
+- `\groups\revenue` - Gets the total and average revenue by group
+- `\groups\revenue\{id}` - Gets the total and average revenue for a specific group - can also get revenue for a specific month
+- `\groups\revenue\month` - Gets the total and average revenue by group and month
+
+### Future steps
+
+1. Add unit tests to controller and service files
+2. Add additional endpoints and options
+    - Return revenue by month for one user/group
+    - Get top performing groups / users
+3. Add API documentation for consumers
